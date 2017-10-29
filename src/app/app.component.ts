@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'Acme Product Management';
-  nicknames: string[] = ['di', 'boo', 'punkeye'];
 }
