@@ -4,3 +4,7 @@
 div {
     cursor: pointer;
 }
+
+.stars-holder {
+    color: tomato;
+}
