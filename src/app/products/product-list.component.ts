@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
-import {ProductService} from './product.service';
+import { ProductService } from './product.service';
 
 @Component({
     selector: 'pm-products',
@@ -12,8 +12,6 @@ export class ProductListComponent implements OnInit {
   _listFilter: string;
 
   pageTitle: string = 'Product List Components title';
-  imageWidth: number = 50;
-  imageMargin: number = 2;
   showImage: boolean = false;
   products: IProduct[] = [];
   filteredProducts: IProduct[] = [];
@@ -35,15 +33,15 @@ export class ProductListComponent implements OnInit {
     this._listFilter = value;
     this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
   }
-  
-  toggleImage(): void {
-    this.showImage = !this.showImage;
-  }
     
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.products.filter((product: IProduct) =>
         product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
+ 
+  toggleImage(): void {
+    this.showImage = !this.showImage;
   }
 
   onRatingClicked(message: string): void {
