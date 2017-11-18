@@ -11,6 +11,7 @@ import { StarComponent } from './shared/star.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { PageNotFoundComponent } from './products/page-not-found.component';
 import { RouterModule } from '@angular/router';
+import { ProductGuardService } from './products/product-guard.service';
 
 @NgModule({
   declarations: [
@@ -29,13 +30,13 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot(
       [
         { path: 'products', component: ProductListComponent},
-        { path: 'product/:id', component: ProductDetailComponent},
+        { path: 'product/:id', canActivate: [ProductGuardService], component: ProductDetailComponent },
         { path: 'welcome', component: WelcomeComponent },
         { path: '', redirectTo: 'welcome', pathMatch: 'full'},
         { path: '**', component: PageNotFoundComponent }
     ], {useHash: true})
   ],
-  providers: [],
+  providers: [ProductGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
