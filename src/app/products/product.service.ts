@@ -17,10 +17,10 @@ export class ProductService {
         return this._http.get<IProduct[]>(this._productUrl)
             .do(data => console.log("All: " + JSON.stringify(data)))
             .catch(this.handleError);
-        }
+    }
 
-        private handleError(err: HttpErrorResponse) {
-            console.error(err);
-            return Observable.throw(err);
-        }
+    private handleError(err: HttpErrorResponse) {
+        console.error(err);
+        return Observable.throw(err);
+    }
 }
