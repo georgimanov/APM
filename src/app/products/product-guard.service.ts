@@ -14,5 +14,5 @@ export class ProductGuardService implements CanActivate{
       return false;
     }
     return true;
-}
+  }
 }
